@@ -1,0 +1,31 @@
+name: gsa
+channels:
+  - nvidia/label/cuda-11.8.0
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  # CUDA 11.8 build toolchain inside the env — required to build the two CUDA
+  # submodules (system nvcc may be newer than the cu118 wheels torch ships with).
+  # Slim subset instead of the full cuda-toolkit: nvcc + runtime headers + cub/thrust.
+  - cuda-nvcc
+  - cuda-cudart-dev
+  - cuda-cccl
+  - gxx_linux-64=11
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu118
+      - torch==2.4.0+cu118
+      - torchvision==0.19.0+cu118
+      - numpy==1.24.1
+      - plyfile==1.0.3
+      - opencv-python==4.10.0.84
+      - scipy==1.10.1
+      - scikit-learn==1.3.2
+      - matplotlib==3.7.5
+      - pillow==10.2.0
+      - tqdm==4.67.1
+      - pyyaml==6.0.2
+      - e3nn==0.5.3  # 0.5.4 (the version the paper env used) is no longer on PyPI
+      - einops==0.8.0
+      - tensorboard==2.14.0

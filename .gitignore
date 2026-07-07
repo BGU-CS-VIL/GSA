@@ -1,0 +1,23 @@
+__pycache__/
+*.pyc
+build/
+*.egg-info/
+dist/
+
+# local run outputs
+results/
+retrained_models/
+output/
+logs/
+depths/
+plot_3d_real_car/
+events.out.tfevents.*
+nohup.out
+
+# large artifacts
+*.ply
+*.dump
+*.mp4
+
+# keep the shipped mapper checkpoints (31 MB each)
+!sphere_extractor/checkpoints/*.pth
